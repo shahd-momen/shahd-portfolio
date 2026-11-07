@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahd Abd_Elmomen Helal | Portfolio</title>
+    <!-- Google Fonts: Poppins & Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#FBF7FF',
+                            100: '#F3E8FF',
+                            200: '#E9D5FF',
+                            300: '#D8B4FE',
+                            400: '#C084FC',
+                            500: '#A855F7',
+                            600: '#9333EA',
+                            700: '#7E22CE',
+                            800: '#6B21A8',
+                            900: '#581C87',
+                        },
+                        pinkAccent: {
+                            400: '#F472B6',
+                            500: '#EC4899',
+                            600: '#DB2777',
+                        },
+                        darkSlate: '#0F172A',
+                        deepIndigo: '#1E1B4B',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'Cairo', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Styles & Glassmorphism */
+        body {
+            font-family: 'Poppins', 'Cairo', sans-serif;
+            background-color: #FAF5FF;
+            color: #1E1B4B;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(233, 213, 255, 0.6);
+        }
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(168, 85, 247, 0.15);
+            border-color: rgba(192, 132, 252, 0.8);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #7E22CE 0%, #EC4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #9333EA 0%, #EC4899 100%);
+        }
+
+        .gradient-bg-soft {
+            background: linear-gradient(135deg, #F3E8FF 0%, #FCE7F3 100%);
+        }
+
+        /* Subtle animated background shapes */
+        .blob {
+            position: absolute;
+            filter: blur(50px);
+            opacity: 0.45;
+            z-index: -1;
+            border-radius: 50%;
+            animation: float 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(30px, -20px) scale(1.08); }
+            100% { transform: translate(-20px, 30px) scale(0.95); }
+        }
+
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- Background Decorative Blobs -->
+    <div class="blob bg-brand-300 w-96 h-96 top-10 left-[-100px]"></div>
+    <div class="blob bg-pink-300 w-80 h-80 top-[40%] right-[-80px] animation-delay-2000"></div>
+    <div class="blob bg-brand-200 w-96 h-96 bottom-20 left-[20%]"></div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 transition-all duration-300" id="navbar">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-3">
+            <div class="glass-card rounded-2xl px-5 py-3.5 flex items-center justify-between shadow-sm border border-purple-100">
+                <!-- Brand / Logo -->
+                <a href="#about" class="flex items-center gap-2 group">
+                    <div class="w-9 h-9 rounded-xl gradient-bg flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
+                        S
+                    </div>
+                    <span class="font-bold text-lg text-deepIndigo tracking-tight">Shahd<span class="text-brand-600">.Helal</span></span>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
+                    <a href="#about" class="hover:text-brand-600 transition-colors">About Me</a>
+                    <a href="#skills" class="hover:text-brand-600 transition-colors">Skills</a>
+                    <a href="#certifications" class="hover:text-brand-600 transition-colors">Certifications</a>
+                    <a href="#projects" class="hover:text-brand-600 transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a>
+                </div>
+
+                <!-- Action Button -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="gradient-bg text-white px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold shadow-sm hover:shadow-md transition-all hover:opacity-95">
+                        Get In Touch
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden text-slate-700 hover:text-brand-600 focus:outline-none p-1" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Dropdown -->
+            <div id="mobileMenu" class="hidden md:hidden mt-2 glass-card rounded-2xl p-4 shadow-lg flex flex-col gap-3 font-medium text-slate-700">
+                <a href="#about" class="mobile-link py-2 px-3 rounded-lg hover:bg-brand-50 hover:text-brand-600">About Me</a>
+                <a href="#skills" class="mobile-link py-2 px-3 rounded-lg hover:bg-brand-50 hover:text-brand-600">Skills</a>
+                <a href="#certifications" class="mobile-link py-2 px-3 rounded-lg hover:bg-brand-50 hover:text-brand-600">Certifications</a>
+                <a href="#projects" class="mobile-link py-2 px-3 rounded-lg hover:bg-brand-50 hover:text-brand-600">Projects</a>
+                <a href="#contact" class="mobile-link py-2 px-3 rounded-lg hover:bg-brand-50 hover:text-brand-600">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 space-y-24">
+
+        <!-- SECTION 1: HERO & ABOUT ME -->
+        <section id="about" class="reveal pt-6 sm:pt-12">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
+                
+                <!-- Avatar with glowing ring -->
+                <div class="relative group">
+                    <div class="absolute -inset-1.5 gradient-bg rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+                    <div class="relative w-44 h-44 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-white shadow-xl bg-purple-50 flex items-center justify-center">
+                    <img src="image/profile.png" alt="Shahd Abd Abd Elmomen" class="w-full h-full object-cover rounded-full border-4 border-white shadow-xl" >
+                    <!-- Stylized Overlay Badge for Data AI Enthusiast -->
+                        <!-- Stylized Overlay Badge for Data AI Enthusiast -->
+                        <div class="absolute bottom-2 right-2 bg-white/90 backdrop-blur-md p-2 rounded-full shadow-md text-brand-600">
+                            <i class="fa-solid fa-chart-line text-lg"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intro & Tagline Content -->
+                <div class="flex-1 text-center md:text-left space-y-5">
+                    
+                    <!-- Top Badge -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full gradient-bg-soft border border-purple-200 text-brand-700 text-xs sm:text-sm font-semibold">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Computer Science Student — Faculty of Science</span>
+                    </div>
+
+                    <!-- Name -->
+                    <h1 class="text-3xl sm:text-5xl font-extrabold text-deepIndigo tracking-tight leading-tight">
+                        Hi, I'm <span class="gradient-text">Shahd Abd_Elmomen Helal</span>
+                    </h1>
+
+                    <!-- Inspirational Quote -->
+                    <blockquote class="italic text-slate-600 border-l-4 border-brand-400 pl-4 py-1 text-base sm:text-lg font-medium">
+                        “Data is not just numbers… it's stories waiting to be read.”
+                    </blockquote>
+
+                    <!-- Bio -->
+                    <p class="text-slate-600 leading-relaxed text-sm sm:text-base max-w-2xl">
+                        A Computer Science student at the Faculty of Science, passionate about continuous learning and self-development. Deeply interested in <strong>Data Analysis</strong> and <strong>Artificial Intelligence</strong>, believing learning never stops and always striving to improve my skills through online courses, real-world data discovery, and hands-on Python projects.
+                    </p>
+
+                    <!-- Personal Interests & Hobbies Badges -->
+                    <div class="pt-2">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">Interests & Hobbies</h3>
+                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-purple-100 text-slate-700 text-xs sm:text-sm font-medium shadow-sm hover:border-brand-300 transition-colors">
+                                <i class="fa-solid fa-book-open text-brand-500"></i> Continuous Learning
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-purple-100 text-slate-700 text-xs sm:text-sm font-medium shadow-sm hover:border-brand-300 transition-colors">
+                                <i class="fa-solid fa-chart-pie text-pinkAccent-500"></i> Dashboard Design
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-purple-100 text-slate-700 text-xs sm:text-sm font-medium shadow-sm hover:border-brand-300 transition-colors">
+                                <i class="fa-brands fa-python text-brand-500"></i> Python Practice Projects
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-purple-100 text-slate-700 text-xs sm:text-sm font-medium shadow-sm hover:border-brand-300 transition-colors">
+                                <i class="fa-solid fa-pen-nib text-pinkAccent-500"></i> Reading & Tech Writing
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Call To Action Buttons -->
+                    <div class="pt-4 flex flex-wrap gap-3 justify-center md:justify-start">
+                        <a href="#projects" class="gradient-bg text-white px-6 py-2.5 rounded-xl text-sm font-semibold shadow-md hover:opacity-95 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-laptop-code"></i> View Projects
+                        </a>
+                        <a href="#contact" class="bg-white border border-purple-200 text-brand-700 hover:bg-purple-50 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-paper-plane"></i> Contact Me
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: SKILLS -->
+        <section id="skills" class="reveal space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-xs font-bold text-pinkAccent-500 uppercase tracking-widest">Technical Expertise</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-deepIndigo">My Skills & Toolset</h2>
+                <p class="text-slate-500 text-sm sm:text-base">Categorized tools and technologies I utilize to analyze data, design insights, and build web APIs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Category 1: Programming Languages -->
+                <div class="glass-card glass-card-hover rounded-2xl p-6 flex flex-col space-y-4">
+                    <div class="flex items-center gap-3 border-b border-purple-100 pb-4">
+                        <div class="w-10 h-10 rounded-xl gradient-bg-soft flex items-center justify-center text-brand-600 text-lg">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-deepIndigo">Programming Languages</h3>
+                    </div>
+                    <div class="space-y-3 pt-1">
+                        <!-- Skill Item -->
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-white/80 border border-purple-50 shadow-xs">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-brands fa-python text-xl text-brand-600"></i>
+                                <span class="font-semibold text-slate-700 text-sm">Python</span>
+                            </div>
+                            <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Core</span>
+                        </div>
+                        <!-- Skill Item -->
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-white/80 border border-purple-50 shadow-xs">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-database text-xl text-pinkAccent-500"></i>
+                                <span class="font-semibold text-slate-700 text-sm">SQL</span>
+                            </div>
+                            <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Queries</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Data Analysis & Visualization -->
+                <div class="glass-card glass-card-hover rounded-2xl p-6 flex flex-col space-y-4">
+                    <div class="flex items-center gap-3 border-b border-purple-100 pb-4">
+                        <div class="w-10 h-10 rounded-xl gradient-bg-soft flex items-center justify-center text-brand-600 text-lg">
+                            <i class="fa-solid fa-chart-column"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-deepIndigo">Data & Visualization</h3>
+                    </div>
+                    <div class="space-y-2.5 pt-1">
+                        <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/80 border border-purple-50">
+                            <div class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-table text-brand-500 text-sm"></i>
+                                <span class="font-medium text-slate-700 text-sm">Pandas</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/80 border border-purple-50">
+                            <div class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-calculator text-pinkAccent-500 text-sm"></i>
+                                <span class="font-medium text-slate-700 text-sm">NumPy</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/80 border border-purple-50">
+                            <div class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-chart-line text-brand-500 text-sm"></i>
+                                <span class="font-medium text-slate-700 text-sm">Matplotlib</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/80 border border-purple-50">
+                            <div class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-gauge-high text-pinkAccent-500 text-sm"></i>
+                                <span class="font-medium text-slate-700 text-sm">Dashboard Design</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/80 border border-purple-50">
+                            <div class="flex items-center gap-2.5">
+                                <i class="fa-solid fa-lightbulb text-amber-500 text-sm"></i>
+                                <span class="font-medium text-slate-700 text-sm">Storytelling with Data</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Web Development & APIs -->
+                <div class="glass-card glass-card-hover rounded-2xl p-6 flex flex-col space-y-4">
+                    <div class="flex items-center gap-3 border-b border-purple-100 pb-4">
+                        <div class="w-10 h-10 rounded-xl gradient-bg-soft flex items-center justify-center text-brand-600 text-lg">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3 class="font-bold text-lg text-deepIndigo">Web Dev & APIs</h3>
+                    </div>
+                    <div class="space-y-3 pt-1">
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-white/80 border border-purple-50 shadow-xs">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-bolt text-xl text-teal-500"></i>
+                                <span class="font-semibold text-slate-700 text-sm">FastAPI</span>
+                            </div>
+                            <span class="text-xs font-medium text-teal-700 bg-teal-50 px-2.5 py-1 rounded-full">Backend</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-xl bg-white/80 border border-purple-50 shadow-xs">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-shield-halved text-xl text-brand-600"></i>
+                                <span class="font-semibold text-slate-700 text-sm">JWT Security</span>
+                            </div>
+                            <span class="text-xs font-medium text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">Auth</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: CERTIFICATIONS & COURSES -->
+        <section id="certifications" class="reveal space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">Continuous Growth</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-deepIndigo">Certifications & Courses</h2>
+                <p class="text-slate-500 text-sm sm:text-base">Validated learning path and industry-recognized coursework.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                
+                <!-- Certification 1 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-6 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white shrink-0 text-xl shadow-md">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="space-y-1 flex-1">
+                        <span class="text-xs font-bold text-pinkAccent-500 uppercase tracking-wider">Cisco Academy</span>
+                        <h3 class="font-bold text-lg text-deepIndigo">Data Analysis Essentials</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 pt-1">Comprehensive training covering Data Storytelling,Tableau,Data Visualization,Excel,Dashboard,SQL,and Data Analysis.</p>
+                        <img src="image/Data_analysis.png" alt="Cisco Data Analysis Certificate" 
+                         class="mt-3 w-full rounded-xl border border-purple-100 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer">
+                    </div>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="glass-card glass-card-hover rounded-2xl p-6 flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white shrink-0 text-xl shadow-md">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <div class="space-y-1 flex-1">
+                        <span class="text-xs font-bold text-brand-600 uppercase tracking-wider">Python Institute</span>
+                        <h3 class="font-bold text-lg text-deepIndigo">Python for Data Science</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 pt-1">Learn Python for data analysis with Pandas and Matplotlib, and apply your skills through hands-on, Project-Based Learning.</p>
+                        <img src="image/Data_sciense_with_python.png" alt="Data Science Essentials with Python Certificate" 
+                         class="mt-3 w-full rounded-xl border border-purple-100 shadow-sm hover:scale-[1.02] transition-transform cursor-pointer">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 4: PROJECTS -->
+        <section id="projects" class="reveal space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-xs font-bold text-pinkAccent-500 uppercase tracking-widest">Portfolio Showcase</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-deepIndigo">Featured Projects</h2>
+                <p class="text-slate-500 text-sm sm:text-base">Practical applications illustrating data analytics, security, and desktop/web UI utilities.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project Card 1 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between border border-purple-100">
+                    <div class="p-6 sm:p-8 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-brand-100 text-brand-700">Data Analytics & Web API</span>
+                            <div class="flex gap-2 text-slate-400">
+                                <i class="fa-brands fa-python text-lg"></i>
+                                <i class="fa-solid fa-lock text-lg"></i>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl sm:text-2xl font-bold text-deepIndigo">Sales Data Analysis Project</h3>
+
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            An end-to-end analytical web application that processes sales dataset trends using <strong>Python and Pandas</strong>. Features interactive visualization dashboards with a robust <strong>FastAPI</strong> backend and <strong>JWT Authentication</strong> for data security and privacy.
+                        </p>
+
+                        <!-- Tech Pills -->
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs bg-white px-2.5 py-1 rounded-lg border border-purple-100 text-slate-600 font-medium">Python</span>
+                            <span class="text-xs bg-white px-2.5 py-1 rounded-lg border border-purple-100 text-slate-600 font-medium">Pandas</span>
+                            <span class="text-xs bg-white px-2.5 py-1 rounded-lg border border-purple-100 text-slate-600 font-medium">FastAPI</span>
+                            <span class="text-xs bg-white px-2.5 py-1 rounded-lg border border-purple-100 text-slate-600 font-medium">JWT Auth</span>
+                            <span class="text-xs bg-white px-2.5 py-1 rounded-lg border border-purple-100 text-slate-600 font-medium">Dashboard</span>
+                        </div>
+                    </div>
+
+                    <div class="px-6 sm:px-8 py-4 bg-purple-50/50 border-t border-purple-100 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-brand-600 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span> Live Architecture
+                        </span>
+                        <a href="https://github.com/shahd-momen/sales-analysis-api.git" 
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-xs font-bold text-deepIndigo hover:text-brand-600 transition-colors flex items-center gap-1">
+                            Details <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between border border-purple-100">
+                    <div class="p-6 sm:p-8 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-pink-100 text-pink-700">Educational Utility</span>
+                            <div class="flex gap-2 text-slate-400">
+                                <i class="fa-solid fa-calculator text-lg"></i>
+                                <i class="fa-solid fa-graduation-cap text-lg"></i>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl sm:text-2xl font-bold text-deepIndigo">GPA Calculator App</h3>
+
+                        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                            An intuitive educational tool designed to assist university students in seamlessly computing cumulative Grade Point Average (GPA) across various credit-hour systems and grading criteria.
+                        </p>
+
+                        <!-- Tech Pills -->
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="text-xs bg-white px-2.5 py-1 rounded-lg border border-purple-100 text-slate-600 font-medium">Python</span>
+                            <span class="text-xs bg-white px-2.5 py-1 rounded-lg border border-purple-100 text-slate-600 font-medium">Algorithms</span>
+                            <span class="text-xs bg-white px-2.5 py-1 rounded-lg border border-purple-100 text-slate-600 font-medium">UI Design</span>
+                        </div>
+                    </div>
+
+                    <div class="px-6 sm:px-8 py-4 bg-purple-50/50 border-t border-purple-100 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-slate-500">Educational App</span>
+                        <a href="https://github.com/shahd-momen/shahd.git" 
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-xs font-bold text-deepIndigo hover:text-brand-600 transition-colors flex items-center gap-1">
+                            Details <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 5: CONTACT ME -->
+        <section id="contact" class="reveal space-y-8">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">Connect With Me</span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-deepIndigo">Let's Work Together</h2>
+                <p class="text-slate-500 text-sm sm:text-base">Feel free to reach out for collaborations, project inquiries, or data analytics conversations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                
+                <!-- Quick Contact Cards -->
+                <div class="lg:col-span-2 space-y-4">
+                    
+                    <!-- Email Card -->
+                    <div class="glass-card rounded-2xl p-5 flex items-center justify-between">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-xl gradient-bg text-white flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-medium text-slate-400 block">Email Address</span>
+                                <span class="text-xs sm:text-sm font-semibold text-deepIndigo" id="emailText">shahd.helal.work@gmail.com</span>
+                            </div>
+                        </div>
+                        <button onclick="copyToClipboard('shahd.helal.work@gmail.com', 'Email copied!')" class="text-brand-600 hover:text-brand-800 text-sm p-2 rounded-lg hover:bg-brand-50" title="Copy Email">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+
+                    <!-- LinkedIn Card -->
+                    <a href="https://www.linkedin.com/in/%D9%8Dshahd-abd-elmomen-94b510357" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover rounded-2xl p-5 flex items-center justify-between block group">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-medium text-slate-400 block">LinkedIn Profile</span>
+                                <span class="text-xs sm:text-sm font-semibold text-deepIndigo group-hover:text-brand-600 transition-colors">Shahd Abdelmomen</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-brand-600"></i>
+                    </a>
+
+                    <!-- GitHub Card -->
+                    <a href="https://github.com/shahd-momen" target="_blank" rel="noopener noreferrer" class="glass-card glass-card-hover rounded-2xl p-5 flex items-center justify-between block group">
+                        <div class="flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 text-white flex items-center justify-center shrink-0">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-medium text-slate-400 block">GitHub Portfolio</span>
+                                <span class="text-xs sm:text-sm font-semibold text-deepIndigo group-hover:text-brand-600 transition-colors">shahd-abdelmomen</span>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-brand-600"></i>
+                    </a>
+
+                </div>
+                <!-- Contact Form -->
+                <div class="lg:col-span-3 glass-card rounded-2xl p-6 sm:p-8">
+                    <form id="contactForm" action="https://formspree.io/f/xkjjapke" method="POST" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-600 mb-1.5">Your Name</label>
+                                <input type="text" name="name" required placeholder="Jane Doe" class="w-full px-4 py-2.5 rounded-xl border border-purple-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none text-sm bg-white/70">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-600 mb-1.5">Your Email</label>
+                                <input type="email" name="email" required placeholder="jane@example.com" class="w-full px-4 py-2.5 rounded-xl border border-purple-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none text-sm bg-white/70">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-600 mb-1.5">Subject</label>
+                            <input type="text" name="subject" required placeholder="Project Inquiry / Hello" class="w-full px-4 py-2.5 rounded-xl border border-purple-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none text-sm bg-white/70">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-600 mb-1.5">Message</label>
+                            <textarea name="message" rows="4" required placeholder="Hi Shahd, I'd like to discuss a data project..." class="w-full px-4 py-2.5 rounded-xl border border-purple-100 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none text-sm bg-white/70 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full gradient-bg text-white py-3 rounded-xl font-semibold text-sm shadow-md hover:opacity-95 transition-all">
+                            Send Message
+                        </button>
+                    </form>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-purple-100 bg-white/50 backdrop-blur-md py-6 text-center text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p>© <span id="year"></span> Shahd Abdelmomen Helal. All rights reserved.</p>
+            <p class="flex items-center gap-1">
+                Designed with <i class="fa-solid fa-heart text-pinkAccent-500"></i> for Data & AI
+            </p>
+        </div>
+    </footer>
+
+    <!-- Notification Toast Element -->
+    <div id="toast" class="fixed bottom-5 right-5 transform translate-y-20 opacity-0 transition-all duration-300 bg-deepIndigo text-white px-4 py-3 rounded-xl shadow-2xl text-xs font-medium flex items-center gap-2 z-50">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+        <span id="toastMsg">Action completed!</span>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Set dynamic year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-xl';
+            }
+        });
+
+        // Close mobile menu on clicking any link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            });
+        });
+
+        // Toast Notification Functionality
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Copy Text Helper — Modern + Fallback
+        async function copyToClipboard(text, successMessage) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                } else {
+                    const dummy = document.createElement("textarea");
+                    dummy.value = text;
+                    dummy.style.position = "fixed";
+                    dummy.style.opacity = "0";
+                    document.body.appendChild(dummy);
+                    dummy.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(dummy);
+                }
+                showToast(successMessage);
+            } catch (err) {
+                showToast("Copy failed. Please copy manually.");
+            }
+        }
+
+    
+        // Form Submit Handler — with Formspree
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Disable button + show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    showToast("Thank you! Your message has been sent.");
+                    form.reset();
+                } else {
+                    showToast("Oops! Something went wrong. Please try again.");
+                }
+            } catch (err) {
+                showToast("Network error. Please check your connection.");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+        }
+
+        // Scroll Reveal Animation Initialization
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 80;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+</body>
+</html>
